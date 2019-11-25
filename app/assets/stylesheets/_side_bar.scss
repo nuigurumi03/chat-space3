@@ -39,12 +39,15 @@ body {
   .group {
     margin-bottom: 40px;
     &__group-name {
-      font-size: 15px;
+      color: #ffffff;
       margin-bottom: 5px;
     }
-
+    .group__group-name {
+      font-size: 15px;  
+    }
     .group__group-name-message {
       font-size: 11px;
+      color: #ffffff;
     }
   }
 }
