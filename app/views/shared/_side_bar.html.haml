@@ -13,9 +13,8 @@
             %i.fa.fa-cog.white-color
   .groups
     - current_user.groups.each do |group|
-      .group
-        = link_to '#' do
-          .group__group-name 
-            = group.name
-          .group__group-name-message
-            メッセージはまだありません  
+      = link_to '#', class: "group" do
+        .group__group-name 
+          = group.name
+        .group__group-name-message
+          メッセージはまだありません  
