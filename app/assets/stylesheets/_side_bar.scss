@@ -35,19 +35,16 @@ body {
   background-color: #2f3e51;
   padding: 20px 20px 0;
   overflow: scroll;
-
   .group {
-    margin-bottom: 40px;
+    color: #ffffff;
+    text-decoration: none;
     &__group-name {
-      color: #ffffff;
       margin-bottom: 5px;
+      font-size: 15px;
     }
-    .group__group-name {
-      font-size: 15px;  
-    }
-    .group__group-name-message {
+    &__group-name-message {
       font-size: 11px;
-      color: #ffffff;
+      margin-bottom: 40px;
     }
   }
 }
