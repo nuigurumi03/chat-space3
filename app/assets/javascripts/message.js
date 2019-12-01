@@ -1,9 +1,6 @@
 $(function(){
   function buildmessage(message){
-    var insertimage = '';
-    if (message.image) {
-      insertimage = ``;
-    }
+    var image_url = (message.image_url)? `<img class="lower-message__image" src="${message.image_url}">`:"";
     var html = `
       <div class="message">
         <div class="upper-message">
@@ -18,16 +15,11 @@ $(function(){
             <p class="lower-message__content">
               ${message.content}
             </p>
+            <img class="lower-message__image" src="${message.image_url}">
           </div>
-        </div>`;
+        </div>`
     return html;
   }
-
-
-
-
-
-
 
   $('#new_message').on('submit',function(e){
     e.preventDefault()
@@ -44,10 +36,11 @@ $(function(){
     .done(function(message){
         var html = buildmessage(message);
         $(`.messages`).append(html);
-        console.log()
+        $('.submit__btn').attr("disabled",false);
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
     })
     .fail(function(){
-
+      alert("メッセージの送信に失敗しました");
     })
   })
 });
