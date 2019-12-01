@@ -1,7 +1,7 @@
 $(function(){
-  function buildmessage(message){
+  function buildMessage(message){
     var image_url = (message.image_url)? `<img class="lower-message__image" src="${message.image_url}">`:"";
-    var html = `
+    var html_common = `
       <div class="message">
         <div class="upper-message">
           <div class="upper-message__user-name">
@@ -14,11 +14,18 @@ $(function(){
           <div class="lower-message">
             <p class="lower-message__content">
               ${message.content}
-            </p>
-            <img class="lower-message__image" src="${message.image_url}">
-          </div>
-        </div>`
-    return html;
+            </p>`
+    
+    if(message.image_url === null ){
+      var html = html_common + `</div>
+                </div>`
+      return html;
+    }else{
+      var html = html_common + `<img class= "lower-message__image", src= ${message.image_url}>
+                  </div>
+                </div>`
+      return html;
+    }
   }
 
   $('#new_message').on('submit',function(e){
@@ -34,7 +41,7 @@ $(function(){
       contentType: false
     })
     .done(function(message){
-        var html = buildmessage(message);
+        var html = buildMessage(message);
         $(`.messages`).append(html);
         $('.submit__btn').attr("disabled",false);
         $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
