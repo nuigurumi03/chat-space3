@@ -1,7 +1,7 @@
 $(function(){
   function buildMessage(message){
-    var image_url = (message.image_url)? `<img class="lower-message__image" src="${message.image_url}">`:"";
-    var html_common = `
+    var imageUrl = (message.image_url)? `<img class="lower-message__image" src="${message.image_url}">`:"";
+    var html = `
       <div class="message">
         <div class="upper-message">
           <div class="upper-message__user-name">
@@ -10,22 +10,15 @@ $(function(){
           <div class="upper-message__date">
             ${message.created_at}
           </div>
-          </div>
           <div class="lower-message">
             <p class="lower-message__content">
               ${message.content}
-            </p>`
-    
-    if(message.image_url === null ){
-      var html = html_common + `</div>
-                </div>`
-      return html;
-    }else{
-      var html = html_common + `<img class= "lower-message__image", src= ${message.image_url}>
-                  </div>
-                </div>`
-      return html;
-    }
+              ${imageUrl}
+            </p>
+          </div>
+        </div>
+      </div>`
+    return html;
   }
 
   $('#new_message').on('submit',function(e){
