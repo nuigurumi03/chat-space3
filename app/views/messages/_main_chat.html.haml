@@ -12,17 +12,12 @@
       Edit
   .messages
     = render partial: 'message', collection: @messages
-    .message
-      .message__upper-info
-        %p.message__upper-info__talker test１
-        %p.message__upper-info__date 2019/11/21(Thu) 09:34:18
-      %p.message__text eat
-      
-  .form
-    = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'input-box', placeholder: 'type a message'
-      .form__mask
-        = f.label :image, class: 'form__mask__image' do
-          = icon('fas', 'image', class: 'icon')
-          = f.file_field :image, class: 'hidden'
-          = f.submit 'Send', class: 'submit-btn'
+    
+  .bottom-content
+    .submit
+    = form_for [@group, @message], html: { class: "form js-message" } do |f|
+      = f.text_field :content, class: "submit__content js-form__text-field", placeholder: 'type a message'
+      %label.chat-footer__file
+        = icon('fas', 'image', class: 'icon')
+        = f.file_field :image, class: 'hidden'
+      = f.submit "Send", class: "submit__btn", name: "Commit"    
