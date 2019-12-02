@@ -13,8 +13,8 @@ $(function(){
           <div class="lower-message">
             <p class="lower-message__content">
               ${message.content}
-              ${imageUrl}
             </p>
+            ${imageUrl}
           </div>
         </div>
       </div>`
