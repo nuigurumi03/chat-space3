@@ -38,6 +38,7 @@ $(function(){
         $(`.messages`).append(html);
         $('.submit__btn').attr("disabled",false);
         $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+        $('#new_message')[0].reset();
     })
     .fail(function(){
       alert("メッセージの送信に失敗しました");
