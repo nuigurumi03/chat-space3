@@ -57,13 +57,14 @@ $(function(){
       })
       .done(function(messages) {
         var insertHTML = '';
-        messages.forEach(function(message){
+        messages.forEach(function(message) {
           insertHTML = buildHTML(message);
           $('.messages').append(insertHTML);
-        });
+        })
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       })
       .fail(function() {
-        console.log('error');
+        alert('error');
       });
     }
   };
