@@ -3,7 +3,7 @@ $(function(){
   function buildHTML(message){
     var imageUrl = (message.image_url)? `<img class="lower-message__image" src="${message.image_url}">`:"";
     var html = `
-      <div class="message" data-message_id = ${message.id}  >
+      <div class="message" data-message_id = ${message.id} >
         <div class="upper-message">
           <div class="upper-message__user-name">
             ${message.user_name}
@@ -47,7 +47,7 @@ $(function(){
   })
 
   var reloadMessages = function() {
-    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
       var last_message_id = $(".message:last").data("message_id");
       $.ajax({
         url: "api/messages",
@@ -69,4 +69,4 @@ $(function(){
     }
   };
   setInterval(reloadMessages, 7000);
-});
+  });
