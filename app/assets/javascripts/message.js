@@ -36,7 +36,7 @@ $(function(){
     .done(function(message){
         var html = buildHTML(message);
         $(`.messages`).append(html);
-        $('.submit__btn').attr("disabled",false);
+        $('.submit__input-box__btn').attr("disabled",false);
         $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
         $('#new_message')[0].reset();
     })
