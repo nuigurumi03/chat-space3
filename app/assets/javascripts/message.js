@@ -10,12 +10,12 @@ $(function(){
           <div class="upper-message__date">
             ${message.created_at}
           </div>
+        </div>
           <div class="lower-message">
-            <p class="lower-message__content">
-              ${message.content}
-            </p>
-            ${imageUrl}
-          </div>
+          <p class="lower-message__content">
+            ${message.content}
+          </p>
+          ${imageUrl}
         </div>
       </div>`
     return html;
