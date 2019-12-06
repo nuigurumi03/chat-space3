@@ -58,15 +58,15 @@ $(function(){
         var insertHTML = '';
         $.each(messages, function(i,message) {
           insertHTML = buildHTML(message);
-          console.log("sss")
+          $('.messages').append(insertHTML);
+          $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
         });
-        $('.messages').append(insertHTML);
-        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       })
       .fail(function() {
-        alert('error');
+        alert('メッセージの送信に失敗しました');
       })
     }
   }
+  
   setInterval(reloadMessages, 7000);
 });
