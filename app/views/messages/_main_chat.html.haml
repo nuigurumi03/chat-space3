@@ -13,11 +13,12 @@
   .messages
     = render partial: 'message', collection: @messages
     
-  .bottom-content
-    .submit
-    = form_for [@group, @message], html: { class: "form js-message" } do |f|
-      = f.text_field :content, class: "submit__content js-form__text-field", placeholder: 'type a message'
-      %label.chat-footer__file
-        = icon('fas', 'image', class: 'icon')
-        = f.file_field :image, class: 'hidden'
-      = f.submit "Send", class: "submit__btn", name: "Commit"    
+  .submit
+    = form_for [@group, @message] do |f|
+      .submit__input-box  
+        = f.text_field :content, class: "submit__input-box__content", placeholder: 'type a message'
+        .form__mask
+        = f.label :image, class: "chat-footer__file" do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+        = f.submit "Send", class: "submit__input-box__btn", name: "Commit" 

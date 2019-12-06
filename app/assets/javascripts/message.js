@@ -1,5 +1,4 @@
 $(function(){
-
   function buildHTML(message){
     var imageUrl = (message.image_url)? `<img class="lower-message__image" src="${message.image_url}">`:"";
     var html = `
@@ -44,7 +43,7 @@ $(function(){
     .fail(function(){
       alert("メッセージの送信に失敗しました");
     })
-  })
+  });
 
   var reloadMessages = function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
@@ -57,16 +56,17 @@ $(function(){
       })
       .done(function(messages) {
         var insertHTML = '';
-        messages.forEach(function(message) {
+        $.each(messages, function(i,message) {
           insertHTML = buildHTML(message);
-          $('.messages').append(insertHTML);
-        })
+          console.log("sss")
+        });
+        $('.messages').append(insertHTML);
         $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       })
       .fail(function() {
         alert('error');
-      });
+      })
     }
-  };
+  }
   setInterval(reloadMessages, 7000);
-  });
+});
